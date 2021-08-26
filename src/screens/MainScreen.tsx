@@ -101,10 +101,15 @@ export default connect(mapStateToProps)(MainScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+<<<<<<< HEAD
+=======
+    //backgroundColor: "#fff",
+
+>>>>>>> 2ff339fa91030e2bca84ed08aad734a034042238
     marginTop: 40,
   },
   tiles: {
-    backgroundColor: "#228B22",
+    backgroundColor: "rgb(0, 80, 35)",
     width: 110,
     height: 110,
     marginRight: 7,
