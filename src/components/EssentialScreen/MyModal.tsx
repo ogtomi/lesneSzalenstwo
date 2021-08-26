@@ -7,6 +7,7 @@ import {
   Pressable,
   View,
   ImageBackground,
+  Dimensions
 } from "react-native";
 
 const MyModal = (props) => {
@@ -71,10 +72,12 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: "stretch",
     width: 380,
-    height: 100,
+    //height: 100,
+    height: Dimensions.get("window").height / 6 - 20,
     padding: 10,
     elevation: 2,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 10
   },
   buttonOpen: {
     backgroundColor: "rgb(0, 80, 35)",
@@ -87,8 +90,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: "white",
-    fontWeight: "bold",
-    fontSize: 13,
+    fontSize: 20,
     textAlign: "center",
   },
   modalText: {
