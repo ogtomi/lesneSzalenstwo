@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, PermissionsAndroid } from "react-native";
 import { NativeRouter, Route, Switch } from "react-router-native";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import reducers from './src/reducers'
+import reducers from "./src/reducers";
 
 import MainScreen from "./src/screens/MainScreen";
 import InfoScreen from "./src/screens/InfoScreen";
