@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#FFFF",
+    fontSize: 20,
   },
   alert: {
     backgroundColor: "#FE3C72",
