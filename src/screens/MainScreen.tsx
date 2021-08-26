@@ -44,10 +44,10 @@ const MainScreen = ({ history }) => {
           </View>
           <View style={styles.rows}>
             <TouchableOpacity
-              onPress={() => history.push("InfoScreen")}
+              onPress={() => history.push("ScanQrScreen")}
               style={styles.tiles}
             >
-              <Text style={styles.text}>InfoScreen</Text>
+              <Text style={styles.text}>ScanQrScreen</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => history.push("EssentialScreen")}
