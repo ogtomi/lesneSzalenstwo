@@ -1,12 +1,27 @@
 import React from 'react'
 import { TouchableOpacity, View, Text } from 'react-native'
 
-const MainScreen = () => {
+const MainScreen = ({ history }) => {
     return (
         <View>
-            <TouchableOpacity onPress={() => console.log("click")}>
+            <TouchableOpacity onPress={() => history.push("InfoScreen")}>
                 <Text>
-                    MainScreen
+                    InfoScreen
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => history.push("MapScreen")}>
+                <Text>
+                    MapScreen
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => history.push("PathsScreen")}>
+                <Text>
+                    PathsScreen
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => history.push("ScanQrScreen")}>
+                <Text>
+                    ScanQrScreen
                 </Text>
             </TouchableOpacity>
         </View>
