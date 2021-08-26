@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import TittleTattle from "../InfoScreen/TittleTattle";
+import TittleTattle from "../components/InfoScreen/TittleTattle";
 
 const DATA = [
   {
@@ -45,7 +45,7 @@ const DATA = [
   },
 ];
 
-//const backgroundURL = require("../../img/tittletattle.jpg");
+const backgroundURL = require("../../img/tittletattle.jpg");
 
 export default function InfoScreen({ history }) {
   return (
