@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
-    width: 350,
+    width: 380,
     height: 170,
     marginBottom: 7,
     marginTop: 7,

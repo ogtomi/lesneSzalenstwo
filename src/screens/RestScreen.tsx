@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   disabledTiles: {
     backgroundColor: "#808080",
-    width: 350,
+    //width: 350,
     height: 100,
     marginRight: 7,
     marginLeft: 7,
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center",
+    borderRadius: 10
   },
   rows: {
     flexDirection: "row",
