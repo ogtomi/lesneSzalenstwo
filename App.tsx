@@ -11,6 +11,7 @@ import PathsScreen from "./src/screens/PathsScreen";
 import MapScreen from "./src/screens/MapScreen";
 import EssentialScreen from "./src/screens/EssentialScreen";
 import ScanQrScreen from "./src/screens/ScanQrScreen";
+import AlertScreen from "./src/screens/AlertScreen";
 
 const store = createStore(reducers);
 
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/PathsScreen" component={PathsScreen} />
             <Route path="/EssentialScreen" component={EssentialScreen} />
             <Route path="/ScanQrScreen" component={ScanQrScreen} />
+            <Route path="/AlertScreen" component={AlertScreen} />
           </Switch>
         </View>
       </NativeRouter>
