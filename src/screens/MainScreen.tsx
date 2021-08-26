@@ -7,6 +7,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { connect } from "react-redux";
+import NotificationFlatList from "../components/Notification/NotificationFlatList";
 
 const image = {
   uri: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
@@ -18,6 +19,7 @@ const MainScreen = ({ history }) => {
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View style={styles.container}>
+        <NotificationFlatList history={history}></NotificationFlatList>
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => {

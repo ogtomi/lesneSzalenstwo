@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { useState } from "react";
+import { Modal } from "react-native";
 import { Dimensions } from "react-native";
 import {
   Button,
@@ -11,48 +13,57 @@ import {
   View,
 } from "react-native";
 
-import Alert from "./Alert";
+import Notification from "./Notification";
 
 const DATA = [
   {
     id: "1",
     title: "Alert 1",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: "2",
     title: "Alert 2",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: "3",
     title: "Alert 3",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: "4",
     title: "Alert 4",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
 ];
 
-export default function AlertFlatList() {
+export default function NotificationFlatList(props) {
+  const [showFull, setShowFull] = useState(false);
   return (
     <View>
       {/* <View style={styles.container}>
         <Text style={styles.title}>Czy wiesz, że?</Text> */}
       <FlatList
-        ListHeaderComponent={<Text style={styles.title}>Czy wiesz, że?</Text>}
         style={styles.container}
         data={DATA}
         renderItem={({ item }) => (
-          <TouchableOpacity>
-            <Alert title={item.title} content={item.content}></Alert>
-          </TouchableOpacity>
+          <View>
+            <TouchableOpacity
+              onPress={() =>
+                props.history.push({
+                  pathname: "/NotificationScreen",
+                  title: item.title,
+                  content: item.content,
+                })
+              }
+            >
+              <Notification
+                title={item.title}
+                content={item.content}
+              ></Notification>
+            </TouchableOpacity>
+          </View>
         )}
         keyExtractor={(item) => item.id}
       ></FlatList>
@@ -62,8 +73,9 @@ export default function AlertFlatList() {
 
 const styles = StyleSheet.create({
   container: {
+    height: Dimensions.get("window").height / 4,
     //flex: 1,
-    //backgroundColor: "#fff",
+    backgroundColor: "rgba(255,255,255,0.8)",
     //alignItems: "center",
     //justifyContent: "center",
   },
@@ -102,5 +114,7 @@ const styles = StyleSheet.create({
   buttonViewText: {
     fontSize: 45,
     alignSelf: "center",
+    position: "absolute",
+    bottom: 0,
   },
 });
