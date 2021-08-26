@@ -15,7 +15,7 @@ const MainScreen = ({ history }) => {
           <TouchableOpacity
             onPress={() => history.push("MapScreen")}
             style={styles.tiles}
-          > 
+          >
             <Text>MapScreen</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -33,10 +33,10 @@ const MainScreen = ({ history }) => {
             <Text>InfoScreen</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => history.push("EssentialScreen")}
+            onPress={() => history.push("MapScreen")}
             style={styles.tiles}
           >
-            <Text>Niezbędnik</Text>
+            <Text>MapScreen</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => history.push("PathsScreen")}
