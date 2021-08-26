@@ -41,7 +41,9 @@ const DATA = [
 export default function NotificationFlatList(props) {
   const [showFull, setShowFull] = useState(false);
   return (
-    <View>
+    <View
+      style={{ backgroundColor: "rgba(255,255,255,0.8)", paddingVertical: 10 }}
+    >
       {/* <View style={styles.container}>
         <Text style={styles.title}>Czy wiesz, że?</Text> */}
       <FlatList
@@ -73,8 +75,9 @@ export default function NotificationFlatList(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: Dimensions.get("window").height / 4,
+    height: Dimensions.get("window").height / 3,
     //flex: 1,
+
     backgroundColor: "rgba(255,255,255,0.8)",
     //alignItems: "center",
     //justifyContent: "center",
