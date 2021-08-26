@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { Dimensions } from "react-native";
 import { Button, TouchableOpacity } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -9,8 +10,13 @@ export default function NotificationScreen(props) {
       <Text style={styles.modalTitle}>{props.location.title}</Text>
       <Text style={styles.modalContent}>{props.location.content}</Text>
 
-      <View style={styles.buttonView} onPress={() => console.log("sdasd")}>
-        <Button title={"asdsd"} onPress={() => props.history.goBack()}></Button>
+      <View style={styles.buttonView}>
+        <TouchableOpacity
+          style={styles.buttonBackView}
+          onPress={() => props.history.goBack()}
+        >
+          <Text style={styles.buttonBackViewText}>{"<<<"}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -64,7 +70,9 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     marginBottom: 10,
-    //width: Dimensions.get("window").width,
+    width: Dimensions.get("window").width,
+    position: "absolute",
+    bottom: 0,
     marginLeft: 5,
     marginRight: 5,
     height: 60,
@@ -78,5 +86,21 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     position: "absolute",
     bottom: 0,
+  },
+
+  buttonBackView: {
+    marginBottom: 10,
+    //width: Dimensions.get("window").width,
+    marginLeft: 5,
+    marginRight: 5,
+    height: 60,
+    backgroundColor: "rgb(0, 143, 52)",
+    alignContent: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+  },
+  buttonBackViewText: {
+    fontSize: 45,
+    alignSelf: "center",
   },
 });
