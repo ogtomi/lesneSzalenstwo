@@ -68,6 +68,7 @@ export default function ScanQrScreen({ history }) {
     } catch {
       Alert.alert("Błąd", "Błędny kod QR");
     }
+    setScanQr(false);
   };
 
   useEffect(() => {
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
   },
   imgBackground: {
-    //width: "100%",
+    width: "100%",
     marginTop: 40,
     height: "100%",
     flex: 1,
