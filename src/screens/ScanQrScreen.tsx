@@ -104,7 +104,7 @@ export default function ScanQrScreen({ history }) {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonBackView}
-        onPress={() => history.goBack()}
+        onPress={() => history.push("RestScreen")}
       >
         <Text style={styles.buttonBackViewText}>{"<<<"}</Text>
       </TouchableOpacity>

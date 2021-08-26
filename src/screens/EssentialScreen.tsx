@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, ImageBackground, StyleSheet } from "react-native";
+import { View, Text, Button, ImageBackground, StyleSheet, TouchableOpacity } from "react-native";
 
 import MyModal from "../components/EssentialScreen/MyModal";
 
@@ -12,9 +12,14 @@ const EssentialScreen = ({ history }) => {
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View>
         <MyModal name="Zasady zachowania w lesie" text="Jakis tekst" />
-        <MyModal name="Co należy wziąc ze sobą" text="Jakis tekst" />
+        <MyModal name="Co należy wziąć ze sobą" text="Jakis tekst" />
         <MyModal name="Niezbędne numery" text="Jakis tekst" />
-        <Button title="Go back" onPress={() => history.push("/")} />
+        <TouchableOpacity
+          style={styles.buttonView}
+          onPress={() => history.goBack()}
+        >
+          <Text style={styles.buttonViewText}>{"<<<"}</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -29,5 +34,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "stretch",
     resizeMode: "stretch",
+  },
+  buttonView: {
+    marginTop: 50,
+    marginBottom: 10,
+    //width: Dimensions.get("window").width,
+    marginLeft: 5,
+    marginRight: 5,
+    height: 60,
+    backgroundColor: "rgb(0, 80, 35)",
+    alignContent: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+  },
+  buttonViewText: {
+    fontSize: 45,
+    alignSelf: "center",
   },
 });

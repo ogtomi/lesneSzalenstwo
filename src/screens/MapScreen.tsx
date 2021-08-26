@@ -7,7 +7,7 @@ const MapScreen = ({ history }) => {
             <Text>
                 MapScreen
             </Text>
-            <Button title="Go back" onPress={() => history.push('/')}/>
+            <Button title="Go back" onPress={() => history.push('RestScreen')}/>
         </View>
     )
 }

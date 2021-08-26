@@ -7,7 +7,7 @@ const PathsScreen = ({ history }) => {
             <Text>
                 PathsScreen
             </Text>
-            <Button title="Go back" onPress={() => history.push('/')}/>
+            <Button title="RestScreen" onPress={() => history.push('RestScreen')}/>
         </View>
     )
 }
