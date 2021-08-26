@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import TittleTattle from "../InfoScreen/TittleTattle";
+import TittleTattle from "../components/InfoScreen/TittleTattle";
 
 const DATA = [
   {
