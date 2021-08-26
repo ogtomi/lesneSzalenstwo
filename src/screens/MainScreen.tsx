@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TouchableOpacity,
   View,
@@ -6,20 +6,23 @@ import {
   StyleSheet,
   ImageBackground,
 } from "react-native";
+import { connect } from 'react-redux'
 
 const image = {
-  uri: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZvcmVzdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+  uri: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
 };
 
 const MainScreen = ({ history }) => {
+  const [isLoggedIn, setLogIn] = useState(false)
+
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.loginBtn}
-          onPress={() => console.log("click")}
+          onPress={() => {isLoggedIn ? setLogIn(false) : setLogIn(true)}}
         >
-          <Text style={styles.text}>LOGIN</Text>
+          <Text style={styles.text}>{isLoggedIn ? "LOGOUT" : "LOGIN"}</Text>
         </TouchableOpacity>
         <View style={styles.columns}>
           <View style={styles.rows}>
@@ -32,6 +35,7 @@ const MainScreen = ({ history }) => {
             <TouchableOpacity
               onPress={() => history.push("MapScreen")}
               style={styles.tiles}
+              disabled={!isLoggedIn}
             >
               <Text style={styles.text}>Mapa</Text>
             </TouchableOpacity>
@@ -88,12 +92,15 @@ const MainScreen = ({ history }) => {
   );
 };
 
-export default MainScreen;
+const mapStateToProps = (state) => {
+  return { loginData: state.sign };
+};
+
+export default connect(mapStateToProps)(MainScreen);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     marginTop: 40,
   },
   tiles: {
@@ -123,8 +130,8 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     backgroundColor: "#006400",
-    width: 60,
-    height: 25,
+    width: 100,
+    height: 30,
     marginRight: 7,
     marginLeft: 250,
     marginBottom: 7,
