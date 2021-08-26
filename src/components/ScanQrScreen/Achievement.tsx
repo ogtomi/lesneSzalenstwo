@@ -2,11 +2,12 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
+const achievURL = require("../../../img/forest-tree.png");
+
 export default function Achievement(props) {
-  var base64Image = "data:image/png;base64," + props.image;
   return (
     <View style={styles.container}>
-      <Image style={{ width: 50, height: 50 }} source={{ uri: base64Image }} />
+      <Image style={{ width: 50, height: 50 }} source={achievURL} />
       <Text style={styles.title}>{props.placeName}</Text>
       <Text style={styles.content}>{props.description}</Text>
     </View>
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
   },
   title: {
-    marginTop: 40,
+    marginTop: 20,
     //backgroundColor: backgorundColor,
     fontSize: 30,
     //alignItems: "center",

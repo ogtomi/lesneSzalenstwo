@@ -2,14 +2,18 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Dimensions } from "react-native";
 import { Button, TouchableOpacity } from "react-native";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export default function NotificationScreen(props) {
+  var base64Image = "data:image/png;base64," + props.location.image;
   return (
     <View style={styles.container}>
       <Text style={styles.modalTitle}>{props.location.title}</Text>
       <Text style={styles.modalContent}>{props.location.content}</Text>
-
+      <Image
+        style={{ width: 512 / 2, height: 410 / 2 }}
+        source={{ uri: base64Image }}
+      />
       <View style={styles.buttonView}>
         <TouchableOpacity
           style={styles.buttonBackView}
@@ -27,6 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     //backgroundColor: "rgba(255,255,255,0.8)",
     alignItems: "center",
+    justifyContent: "center",
     //borderWidth: 1,
     borderRadius: 10,
     marginTop: 3,
