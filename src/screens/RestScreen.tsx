@@ -6,7 +6,7 @@ import {
   StyleSheet,
   ImageBackground,
 } from "react-native";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 const image = {
   uri: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
@@ -31,10 +31,14 @@ class RestScreen extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.props.history.push("ScanQrScreen")}
-            style={!this.props.loginData.isSignedIn ? styles.disabledTiles : styles.tiles}
+            style={
+              !this.props.loginData.isSignedIn
+                ? styles.disabledTiles
+                : styles.tiles
+            }
             disabled={!this.props.loginData.isSignedIn ? true : false}
           >
-            <Text style={styles.text}>ScanQrScreen</Text>
+            <Text style={styles.text}>Odznaczenia</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.props.history.push("EssentialScreen")}
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
-    width: 350,
+    //width: 350,
     height: 100,
     marginRight: 7,
     marginLeft: 7,
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center",
+    borderRadius: 10,
   },
   disabledTiles: {
     backgroundColor: "#808080",
@@ -116,6 +121,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#FFFF",
+    fontSize: 20,
   },
   alert: {
     backgroundColor: "#FE3C72",
