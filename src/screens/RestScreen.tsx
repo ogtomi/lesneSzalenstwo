@@ -6,51 +6,59 @@ import {
   StyleSheet,
   ImageBackground,
 } from "react-native";
+import { connect } from 'react-redux'
 
 const image = {
   uri: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
 };
 
-const RestScreen = ({ history }) => {
-  return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
-      <View style={styles.container}>
-        <TouchableOpacity
-          onPress={() => history.push("InfoScreen")}
-          style={styles.tiles}
-        >
-          <Text style={styles.text}>Informacje</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => history.push("MapScreen")}
-          style={styles.tiles}
-        >
-          <Text style={styles.text}>Mapa</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => history.push("ScanQrScreen")}
-          style={styles.tiles}
-        >
-          <Text style={styles.text}>ScanQrScreen</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => history.push("EssentialScreen")}
-          style={styles.tiles}
-        >
-          <Text style={styles.text}>Niezbędnik</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonView}
-          onPress={() => history.push("/")}
-        >
-          <Text style={styles.buttonViewText}>{"<<<"}</Text>
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
-  );
+class RestScreen extends React.Component {
+  render() {
+    return (
+      <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
+        <View style={styles.container}>
+          <TouchableOpacity
+            onPress={() => this.props.history.push("InfoScreen")}
+            style={styles.tiles}
+          >
+            <Text style={styles.text}>Informacje</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.history.push("MapScreen")}
+            style={styles.tiles}
+          >
+            <Text style={styles.text}>Mapa</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.history.push("ScanQrScreen")}
+            style={!this.props.loginData.isSignedIn ? styles.disabledTiles : styles.tiles}
+            disabled={!this.props.loginData.isSignedIn ? true : false}
+          >
+            <Text style={styles.text}>ScanQrScreen</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.history.push("EssentialScreen")}
+            style={styles.tiles}
+          >
+            <Text style={styles.text}>Niezbędnik</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonView}
+            onPress={() => this.props.history.push("/")}
+          >
+            <Text style={styles.buttonViewText}>{"<<<"}</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return { loginData: state.sign };
 };
 
-export default RestScreen;
+export default connect(mapStateToProps)(RestScreen);
 
 const styles = StyleSheet.create({
   container: {
@@ -59,6 +67,18 @@ const styles = StyleSheet.create({
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
+    width: 350,
+    height: 100,
+    marginRight: 7,
+    marginLeft: 7,
+    marginBottom: 7,
+    marginTop: 7,
+    justifyContent: "center",
+    textAlign: "center",
+    alignItems: "center",
+  },
+  disabledTiles: {
+    backgroundColor: "#808080",
     width: 350,
     height: 100,
     marginRight: 7,
