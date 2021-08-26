@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { NativeRouter, Route, Switch } from "react-router-native";
 
 import MainScreen from "./src/screens/MainScreen";
-import InfoScreen from "./src/screens/InfoScreen"
-import PathsScreen from "./src/screens/PathsScreen"
-import MapScreen from "./src/screens/MapScreen"
+import InfoScreen from "./src/screens/InfoScreen";
+import PathsScreen from "./src/screens/PathsScreen";
+import MapScreen from "./src/screens/MapScreen";
 
 export default function App() {
   return (
