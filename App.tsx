@@ -3,10 +3,7 @@ import { StyleSheet, Text, View, PermissionsAndroid } from "react-native";
 import { NativeRouter, Route, Switch } from "react-router-native";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-<<<<<<< HEAD
 import reducers from './src/reducers'
-=======
->>>>>>> 2ff339fa91030e2bca84ed08aad734a034042238
 
 import MainScreen from "./src/screens/MainScreen";
 import InfoScreen from "./src/screens/InfoScreen";
@@ -15,43 +12,7 @@ import MapScreen from "./src/screens/MapScreen";
 import EssentialScreen from "./src/screens/EssentialScreen";
 import ScanQrScreen from "./src/screens/ScanQrScreen";
 
-<<<<<<< HEAD
 const store = createStore(reducers);
-=======
-import { Camera } from "expo-camera";
-
-// useEffect(() => {
-//   (async () => {
-//     const { status } = await Camera.requestPermissionsAsync();
-//   })();
-// }, []);
-
-const requestCameraPermission = async () => {
-  try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-      {
-        title: "Cool Photo App Camera Permission",
-        message:
-          "Cool Photo App needs access to your camera " +
-          "so you can take awesome pictures.",
-        buttonNeutral: "Ask Me Later",
-        buttonNegative: "Cancel",
-        buttonPositive: "OK",
-      }
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera");
-    } else {
-      console.log("Camera permission denied");
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-};
-
-requestCameraPermission();
->>>>>>> 2ff339fa91030e2bca84ed08aad734a034042238
 
 export default function App() {
   return (

@@ -66,24 +66,11 @@ const MainScreen = ({ history }) => {
               <Text style={styles.text}>PathsScreen</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.rows}>
-            <TouchableOpacity
-              onPress={() => history.push("InfoScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>InfoScreen</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => history.push("EssentialScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>Niezbędnik</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => history.push("PathsScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>PathsScreen</Text>
+          <View>
+            <TouchableOpacity>
+              <Text style={styles.text}>
+                Zgłoś
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -101,11 +88,8 @@ export default connect(mapStateToProps)(MainScreen);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-<<<<<<< HEAD
-=======
     //backgroundColor: "#fff",
 
->>>>>>> 2ff339fa91030e2bca84ed08aad734a034042238
     marginTop: 40,
   },
   tiles: {
