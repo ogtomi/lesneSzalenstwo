@@ -93,11 +93,12 @@ export default MainScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    //backgroundColor: "#fff",
+
     marginTop: 40,
   },
   tiles: {
-    backgroundColor: "#228B22",
+    backgroundColor: "rgb(0, 80, 35)",
     width: 110,
     height: 110,
     marginRight: 7,

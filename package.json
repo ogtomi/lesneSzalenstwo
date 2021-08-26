@@ -14,11 +14,15 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-camera": "^4.1.0",
     "react-native-maps": "^0.28.0",
+    "react-native-permissions": "^3.0.5",
+    "react-native-qrcode-scanner": "^1.5.4",
     "react-native-web": "^0.11.7",
     "react-redux": "^7.2.4",
     "react-router-native": "^5.2.0",
-    "redux": "^4.1.1"
+    "redux": "^4.1.1",
+    "expo-camera": "~11.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
