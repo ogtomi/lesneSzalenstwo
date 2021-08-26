@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
     //width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height / 6 - 30,
+    height: Dimensions.get("window").height / 6 - 20,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   loginBtn: {
     backgroundColor: "rgb(0, 80, 35)",
     //width: 357,
-    height: Dimensions.get("window").height / 6 - 10,
+    height: Dimensions.get("window").height / 6 - 40,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   alert: {
     backgroundColor: "#FE3C72",
     //width: 357,
-    height: Dimensions.get("window").height / 6 - 20,
+    height: Dimensions.get("window").height / 6 - 10,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
