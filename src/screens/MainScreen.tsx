@@ -14,45 +14,42 @@ const image = {
   uri: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZXN0fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
 };
 
-const MainScreen = ({ history }, { loginData }) => {
-  const [isLoggedIn, setLogIn] = useState(false);
-
-  return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
-      <View style={styles.container}>
-        <NotificationFlatList history={history}></NotificationFlatList>
-        <View>
+class MainScreen extends React.Component {
+  render() {
+    return (
+      <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
+        <View style={styles.container}>
+          <NotificationFlatList history={this.props.history}></NotificationFlatList>
+          <View>
+            <TouchableOpacity
+              style={styles.alert}
+              onPress={() => this.props.history.push("AlertScreen")}
+            >
+              <Text style={styles.text}>Zgłoś</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.tiles}
+              onPress={() => this.props.history.push("RestScreen")}
+            >
+              <Text style={styles.text}>Więcej...</Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
-            style={styles.alert}
-            onPress={() => history.push("AlertScreen")}
+            style={styles.loginBtn}
+            onPress={() => {
+              console.log(this.props.loginData);
+              this.props.history.push("LoginScreen");
+            }}
           >
-            <Text style={styles.text}>Zgłoś</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.tiles}
-            onPress={() => history.push("RestScreen")}
-          >
-            <Text style={styles.text}>Więcej...</Text>
+            <Text style={styles.text}>{!this.props.loginData.isSignedIn ? "LOGIN" : "LOGOUT"}</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => {
-            history.push("LoginScreen");
-            if (!loginData.email === undefined) {
-              loginData.isSignedIn ? setLogIn(true) : setLogIn(false);
-            }
-          }}
-        >
-          <Text style={styles.text}>{isLoggedIn ? "LOGOUT" : "LOGIN"}</Text>
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
-  );
-};
+      </ImageBackground>
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return { loginData: state.sign };
 };
 

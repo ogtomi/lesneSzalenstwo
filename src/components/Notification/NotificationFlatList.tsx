@@ -95,7 +95,7 @@ export default function NotificationFlatList(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: Dimensions.get("window").height / 2,
+    height: Dimensions.get("window").height / 2.5,
     //flex: 1,
     borderRadius: 10,
     //backgroundColor: "rgba(255,255,255,0.8)",
