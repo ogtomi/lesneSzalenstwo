@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     height: 60,
-    backgroundColor: "rgb(0, 143, 52)",
+    backgroundColor: "rgb(0, 80, 35)",
     alignContent: "center",
     justifyContent: "center",
     borderRadius: 10,
