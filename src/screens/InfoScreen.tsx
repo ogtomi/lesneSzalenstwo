@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import TittleTattle from "../InfoScreen/TittleTattle";
 
 export default function InfoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Informacje</Text>
+      <Text style={styles.title}>Czy wiesz, że?</Text>
+      <TittleTattle></TittleTattle>
+      <TittleTattle></TittleTattle>
       <Text style={styles.credits}>
         Autorzy: Krzysztof Jeschke i Tomasz Lewandowski
       </Text>
