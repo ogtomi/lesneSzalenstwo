@@ -6,6 +6,7 @@ import MainScreen from "./src/screens/MainScreen";
 import InfoScreen from "./src/screens/InfoScreen";
 import PathsScreen from "./src/screens/PathsScreen";
 import MapScreen from "./src/screens/MapScreen";
+import EssentialScreen from "./src/screens/EssentialScreen";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/InfoScreen" component={InfoScreen} />
           <Route path="/MapScreen" component={MapScreen} />
           <Route path="/PathsScreen" component={PathsScreen} />
+          <Route path="/EssentialScreen" component={EssentialScreen} />
         </Switch>
       </View>
     </NativeRouter>
