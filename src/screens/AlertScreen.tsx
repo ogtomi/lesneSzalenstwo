@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   Alert,
+  Dimensions,
 } from "react-native";
 
 import MyModal from "../components/EssentialScreen/MyModal";
@@ -40,7 +41,7 @@ const AlertScreen = ({ history }) => {
 
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
-      <View>
+      <View style={styles.container}>
         <TouchableOpacity
           style={styles.tiles}
           onPress={() => showConfirmDialog("pożar")}
@@ -86,25 +87,32 @@ export default AlertScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    //textAlign: "center",
+    //alignItems: "center",
     //backgroundColor: "#fff",
   },
   text: {
     color: "#FFFF",
+    fontSize: 20,
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
-    width: 380,
-    height: 170,
+    //width: 380,
+    height: Dimensions.get("window").height / 8,
     marginBottom: 7,
     marginTop: 7,
+    marginHorizontal: 5,
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center",
+    borderRadius: 10,
   },
   bgImage: {
     flex: 1,
     alignItems: "stretch",
     resizeMode: "stretch",
+    ...StyleSheet.absoluteFillObject,
   },
   buttonView: {
     marginTop: 50,
