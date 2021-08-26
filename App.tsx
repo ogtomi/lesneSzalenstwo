@@ -14,6 +14,8 @@ import ScanQrScreen from "./src/screens/ScanQrScreen";
 import AlertScreen from "./src/screens/AlertScreen";
 import RestScreen from "./src/screens/RestScreen";
 import NotificationScreen from "./src/screens/NotificationScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import SignUpScreen from "./src/screens/SignUpScreen";
 
 const store = createStore(reducers);
 
@@ -32,6 +34,8 @@ export default function App() {
             <Route path="/AlertScreen" component={AlertScreen} />
             <Route path="/NotificationScreen" component={NotificationScreen} />
             <Route path="/RestScreen" component={RestScreen} />
+            <Route path="/LoginScreen" component={LoginScreen} />
+            <Route path="/SignUpScreen" component={SignUpScreen} />
           </Switch>
         </View>
       </NativeRouter>
