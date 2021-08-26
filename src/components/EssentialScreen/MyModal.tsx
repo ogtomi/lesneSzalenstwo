@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   buttonOpen: {
-    backgroundColor: "#228B22",
+    backgroundColor: "rgb(0, 80, 35)",
   },
   buttonClose: {
     backgroundColor: "#2196F3",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 13,
     textAlign: "center",
   },
   modalText: {
