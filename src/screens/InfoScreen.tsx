@@ -45,7 +45,7 @@ const DATA = [
   },
 ];
 
-//const backgroundURL = require("../../img/tittletattle.jpg");
+const backgroundURL = require("../../img/tittletattle.jpg");
 
 export default function InfoScreen({ history }) {
   return (
