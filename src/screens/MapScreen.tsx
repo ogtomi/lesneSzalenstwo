@@ -1,4 +1,7 @@
 import React from "react";
+import { useState } from "react";
+import { TouchableOpacity } from "react-native";
+import * as Location from "expo-location";
 import {
   Dimensions,
   StyleSheet,
@@ -12,57 +15,126 @@ import MapView, {
   Circle,
   LatLng,
   Marker,
+  Overlay,
   Polygon,
 } from "react-native-maps";
+import { useEffect } from "react";
 
-export default function MapScreen() {
-  const [first, setFirst] = React.useState(true);
+const colors = {
+  fire: "rgba(255,0,0,0.5)",
+  zul: "rgba(0, 80, 35, 0.5)",
+  work: "rgba(0,0,255,0.5)",
+};
 
-  var initNewPolygon: Array<LatLng> = [
-    {
-      latitude: 54.539,
-      longitude: 18.473,
-    },
-  ];
+var DATA = [
+  {
+    id: "1",
+    placeName: "Pożar",
+    color: colors.fire,
+    polygon: [
+      {
+        latitude: 54.539,
+        longitude: 18.473,
+      },
+      {
+        latitude: 54.51764538002475,
+        longitude: 18.50596245378256,
+      },
+      {
+        latitude: 54.51667795347282,
+        longitude: 18.438833132386208,
+      },
+    ],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+  },
+  {
+    id: "2",
+    placeName: "Żule",
+    color: colors.zul,
+    polygon: [
+      {
+        latitude: 54.565719249540585,
+        longitude: 18.474481031298637,
+      },
+      {
+        latitude: 54.586971780732505,
+        longitude: 18.45448113977909,
+      },
+      {
+        latitude: 54.57457591493654,
+        longitude: 18.439203277230263,
+      },
+    ],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+  },
+  {
+    id: "3",
+    placeName: "Prace w lesie",
+    color: colors.work,
+    polygon: [
+      {
+        latitude: 54.55451174534072,
+        longitude: 18.544479981064796,
+      },
+      {
+        latitude: 54.571553615353466,
+        longitude: 18.537893816828728,
+      },
+      {
+        latitude: 54.576738671839855,
+        longitude: 18.51902011781931,
+      },
+      {
+        latitude: 54.56705152630041,
+        longitude: 18.507813848555088,
+      },
+      {
+        latitude: 54.555366866164945,
+        longitude: 18.516366071999073,
+      },
+    ],
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+  },
+];
 
-  const [newPolygon, setNewPolygon] = React.useState(initNewPolygon);
+export default function MapScreen({ history }) {
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
-  var initPolygons = [
-    // {
-    //   cords: [
-    //     {
-    //       latitude: 54.539,
-    //       longitude: 18.473,
-    //     },
-    //     {
-    //       latitude: 54.51764538002475,
-    //       longitude: 18.50596245378256,
-    //     },
-    //     {
-    //       latitude: 54.51667795347282,
-    //       longitude: 18.438833132386208,
-    //     },
-    //   ],
-    //   title: "TEST",
-    //   description: "DESCPRI",
-    // },
-  ];
-  var tempCords: Array<LatLng> = [
-    {
-      latitude: 54.539,
-      longitude: 18.473,
-    },
-  ];
-  var template = {
-    cords: tempCords,
-    title: "TEST",
-    description: "DESCPRI",
-  };
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+      console.log("tuuuuuu");
+      let location = await Location.getCurrentPositionAsync({
+        enableHighAccuracy: true,
+      });
 
-  const [polygons, setPolygons] = React.useState(initPolygons);
+      setLocation(location);
+    })();
+  }, []);
 
+  let text = "Waiting...";
+  if (errorMsg) {
+    text = errorMsg;
+  } else if (location) {
+    text = JSON.stringify(location);
+  }
+  console.log(text);
   return (
-    <View style={{ marginTop: 50, flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height,
+      }}
+    >
       <MapView
         style={styles.map}
         initialRegion={{
@@ -73,53 +145,30 @@ export default function MapScreen() {
         }}
         provider="google"
         onPress={(e) => {
-          if (first) {
-            setNewPolygon([e.nativeEvent.coordinate]);
-            setFirst(false);
-          } else {
-            setNewPolygon(newPolygon.concat(e.nativeEvent.coordinate));
-            console.log(newPolygon);
+          {
+            console.log(e.nativeEvent.coordinate);
           }
-          //setPolygons(polygons.concat(template));
-          //setPin(e.nativeEvent.coordinate);
-          //setPolygon(polygon.concat(e.nativeEvent.coordinate));
-          //console.log("Polygon", polygon);
         }}
       >
-        <Polygon coordinates={newPolygon} />
-
-        {polygons.map((polygon, index) => (
+        {DATA.map((place, index) => (
           <Polygon
             key={index}
-            coordinates={polygon.cords}
+            coordinates={place.polygon}
             onPress={(e) => {
-              Alert.alert(polygon.title, polygon.description, [
-                {
-                  text: "Cancel",
-                  onPress: () => console.log("Cancel Pressed"),
-                  style: "cancel",
-                },
-                { text: "OK", onPress: () => console.log("OK Pressed") },
-              ]);
+              Alert.alert(place.placeName, place.description, [{ text: "OK" }]);
             }}
             tappable={true}
-            fillColor="rgba(255,0,0,0.5)"
+            fillColor={place.color}
           />
         ))}
       </MapView>
-      <View style={styles.buttonContainer}>
-        <Button
-          onPress={(e) => {
-            template.cords = newPolygon;
-            setPolygons(polygons.concat(template));
-            setNewPolygon(tempCords);
-            setFirst(true);
-          }}
-          title="Add"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-      </View>
+
+      <TouchableOpacity
+        style={styles.buttonView}
+        onPress={() => history.goBack()}
+      >
+        <Text style={styles.buttonViewText}>{"<<<"}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -140,6 +189,24 @@ const styles = StyleSheet.create({
     marginVertical: 50,
     width: Dimensions.get("window").width,
     backgroundColor: "transparent",
+  },
+  buttonView: {
+    marginBottom: 10,
+    width: "100%",
+
+    //marginLeft: 5,
+    marginRight: 15,
+    height: 60,
+    backgroundColor: "rgb(0, 80, 35)",
+    alignContent: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    position: "absolute",
+    bottom: 0,
+  },
+  buttonViewText: {
+    fontSize: 45,
+    alignSelf: "center",
   },
 });
 
