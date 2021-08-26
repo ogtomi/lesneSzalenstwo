@@ -20,6 +20,20 @@ const MainScreen = ({ history }) => {
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View style={styles.container}>
         <NotificationFlatList history={history}></NotificationFlatList>
+        <View>
+          <TouchableOpacity
+            style={styles.alert}
+            onPress={() => history.push("AlertScreen")}
+          >
+            <Text style={styles.text}>Zgłoś</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.tiles}
+            onPress={() => history.push("RestScreen")}
+          >
+            <Text style={styles.text}>Więcej...</Text>
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity
           style={styles.loginBtn}
           onPress={() => {
@@ -28,57 +42,6 @@ const MainScreen = ({ history }) => {
         >
           <Text style={styles.text}>{isLoggedIn ? "LOGOUT" : "LOGIN"}</Text>
         </TouchableOpacity>
-        <View style={styles.columns}>
-          <View style={styles.rows}>
-            <TouchableOpacity
-              onPress={() => history.push("InfoScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>Informacje</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => history.push("MapScreen")}
-              style={styles.tiles}
-              disabled={!isLoggedIn}
-            >
-              <Text style={styles.text}>Mapa</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => history.push("PathsScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>Scieżki</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.rows}>
-            <TouchableOpacity
-              onPress={() => history.push("ScanQrScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>ScanQrScreen</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => history.push("EssentialScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>Niezbędnik</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => history.push("PathsScreen")}
-              style={styles.tiles}
-            >
-              <Text style={styles.text}>PathsScreen</Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity
-              style={styles.alert}
-              onPress={() => history.push("AlertScreen")}
-            >
-              <Text style={styles.text}>Zgłoś</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
       </View>
     </ImageBackground>
   );
@@ -99,7 +62,7 @@ const styles = StyleSheet.create({
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
-    width: 110,
+    width: 357,
     height: 110,
     marginRight: 7,
     marginLeft: 7,
@@ -123,11 +86,11 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
   },
   loginBtn: {
-    backgroundColor: "#006400",
-    width: 100,
-    height: 30,
+    backgroundColor: "rgb(0, 80, 35)",
+    width: 357,
+    height: 50,
     marginRight: 7,
-    marginLeft: 250,
+    marginLeft: 7,
     marginBottom: 7,
     justifyContent: "center",
     textAlign: "center",

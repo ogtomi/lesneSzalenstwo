@@ -21,25 +21,21 @@ const AlertScreen = ({ history }) => {
   const [showBox, setShowBox] = useState(true);
 
   const showConfirmDialog = (type) => {
-    return Alert.alert(
-      "Czy na pewno?",
-      "Potwierdź zgłoszenie",
-      [
-        // The "Yes" button
-        {
-          text: "Tak",
-          onPress: () => {
-            setShowBox(false)
-            console.log("Zgłoszono " + type);
-          },
+    return Alert.alert("Czy na pewno?", "Potwierdź zgłoszenie", [
+      // The "Yes" button
+      {
+        text: "Tak",
+        onPress: () => {
+          setShowBox(false);
+          console.log("Zgłoszono " + type);
         },
-        // The "No" button
-        // Does nothing but dismiss the dialog when tapped
-        {
-          text: "Nie",
-        },
-      ]
-    );
+      },
+      // The "No" button
+      // Does nothing but dismiss the dialog when tapped
+      {
+        text: "Nie",
+      },
+    ]);
   };
 
   return (
@@ -63,16 +59,21 @@ const AlertScreen = ({ history }) => {
         >
           <Text style={styles.text}>Zgłoś inne</Text>
         </TouchableOpacity>
-        <Button title="Go back" onPress={() => history.push("/")} />
+        <TouchableOpacity
+          style={styles.buttonView}
+          onPress={() => history.push("/")}
+        >
+          <Text style={styles.buttonViewText}>{"<<<"}</Text>
+        </TouchableOpacity>
         <DialogInput
           isDialogVisible={alert}
           title={"Zgłoś inne"}
           hintInput={"Wprowadź..."}
           submitInput={(inputText) => {
-            console.log("Zgłoszono " + inputText)
+            console.log("Zgłoszono " + inputText);
           }}
           closeDialog={() => {
-            setAlert(false)
+            setAlert(false);
           }}
         ></DialogInput>
       </View>
@@ -104,5 +105,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "stretch",
     resizeMode: "stretch",
+  },
+  buttonView: {
+    marginTop: 50,
+    marginBottom: 10,
+    //width: Dimensions.get("window").width,
+    marginLeft: 5,
+    marginRight: 5,
+    height: 60,
+    backgroundColor: "rgb(0, 80, 35)",
+    alignContent: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+  },
+  buttonViewText: {
+    fontSize: 45,
+    alignSelf: "center",
   },
 });
