@@ -111,22 +111,23 @@ export default function MapScreen({ history }) {
         setErrorMsg("Permission to access location was denied");
         return;
       }
-      console.log("tuuuuuu");
-      let location = await Location.getCurrentPositionAsync({
-        enableHighAccuracy: true,
-      });
 
-      setLocation(location);
+      let location = await Location.getLastKnownPositionAsync();
+      let cords = {
+        latitude: location?.coords.latitude,
+        longitude: location?.coords.longitude,
+      };
+      setLocation(cords);
     })();
   }, []);
 
-  let text = "Waiting...";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
-  console.log(text);
+  //   let text = "Waiting...";
+  //   if (errorMsg) {
+  //     text = errorMsg;
+  //   } else if (location) {
+  //     text = JSON.stringify(location);
+  //   }
+  //   console.log(text);
   return (
     <View
       style={{
@@ -146,7 +147,7 @@ export default function MapScreen({ history }) {
         provider="google"
         onPress={(e) => {
           {
-            console.log(e.nativeEvent.coordinate);
+            console.log(location);
           }
         }}
       >
@@ -161,6 +162,14 @@ export default function MapScreen({ history }) {
             fillColor={place.color}
           />
         ))}
+        <Marker
+          coordinate={{ latitude: 54.539, longitude: 18.473 }}
+          draggable={false}
+        >
+          <Callout>
+            <Text>I'm here</Text>
+          </Callout>
+        </Marker>
       </MapView>
 
       <TouchableOpacity

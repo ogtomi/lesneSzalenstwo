@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Dimensions } from "react-native";
 import {
   TouchableOpacity,
   View,
@@ -19,7 +20,9 @@ class MainScreen extends React.Component {
     return (
       <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
         <View style={styles.container}>
-          <NotificationFlatList history={this.props.history}></NotificationFlatList>
+          <NotificationFlatList
+            history={this.props.history}
+          ></NotificationFlatList>
           <View>
             <TouchableOpacity
               style={styles.alert}
@@ -41,7 +44,9 @@ class MainScreen extends React.Component {
               this.props.history.push("LoginScreen");
             }}
           >
-            <Text style={styles.text}>{!this.props.loginData.isSignedIn ? "LOGIN" : "LOGOUT"}</Text>
+            <Text style={styles.text}>
+              {!this.props.loginData.isSignedIn ? "LOGIN" : "LOGOUT"}
+            </Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -63,8 +68,8 @@ const styles = StyleSheet.create({
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
-    width: 357,
-    height: 110,
+    //width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height / 6 - 20,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
@@ -72,6 +77,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center",
+    borderRadius: 10,
   },
   rows: {
     flexDirection: "row",
@@ -88,8 +94,8 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     backgroundColor: "rgb(0, 80, 35)",
-    width: 357,
-    height: 50,
+    //width: 357,
+    height: Dimensions.get("window").height / 6 - 40,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
@@ -103,8 +109,8 @@ const styles = StyleSheet.create({
   },
   alert: {
     backgroundColor: "#FE3C72",
-    width: 357,
-    height: 110,
+    //width: 357,
+    height: Dimensions.get("window").height / 6 - 10,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
@@ -112,5 +118,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center",
+    borderRadius: 10,
   },
 });
