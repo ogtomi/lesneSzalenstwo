@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, Button, ImageBackground, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import MyModal from "../components/EssentialScreen/MyModal";
 //import rules from '../../data/rules.txt'
@@ -12,7 +19,7 @@ const EssentialScreen = ({ history }) => {
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View>
-        <MyModal name="Zasady zachowania w lesie" text={rules}/>
+        <MyModal name="Zasady zachowania w lesie" text={rules} />
         <MyModal name="Co należy wziąć ze sobą" text="Jakis tekst" />
         <MyModal name="Niezbędne numery" text={numbers} />
         <TouchableOpacity
@@ -35,6 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "stretch",
     resizeMode: "stretch",
+    ...StyleSheet.absoluteFillObject,
   },
   buttonView: {
     marginTop: 50,
@@ -54,5 +62,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const rules = "W lasach zabrania się:\n\n1) Zanieczyszczania gleby i wód\n\n2) Zaśmiecania\n\n3) Rozkopywania gruntu\n\n4) Niszczenia grzybów oraz grzybni\n\n5) Niszczenia lub uszkadzania drzew, krzewów lub innych roślin"
-const numbers = "Numery:\n\nNUMER ALARMOWY: 112\n\nPOLICJA: 997\n\nSTRAŻ POŻARNA: 998\n\nPOGOTOWIE RATUNKOWE: 999"
+const rules =
+  "W lasach zabrania się:\n\n1) Zanieczyszczania gleby i wód\n\n2) Zaśmiecania\n\n3) Rozkopywania gruntu\n\n4) Niszczenia grzybów oraz grzybni\n\n5) Niszczenia lub uszkadzania drzew, krzewów lub innych roślin";
+const numbers =
+  "Numery:\n\nNUMER ALARMOWY: 112\n\nPOLICJA: 997\n\nSTRAŻ POŻARNA: 998\n\nPOGOTOWIE RATUNKOWE: 999";
