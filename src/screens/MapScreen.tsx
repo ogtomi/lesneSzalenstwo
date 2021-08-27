@@ -45,12 +45,11 @@ var DATA = [
         longitude: 18.438833132386208,
       },
     ],
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    description: "W tym regionie występuje pożar. Nie zbliżaj się do lasu.",
   },
   {
     id: "2",
-    placeName: "Żule",
+    placeName: "Wycinka drzew",
     color: colors.zul,
     polygon: [
       {
@@ -67,11 +66,11 @@ var DATA = [
       },
     ],
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "W tym regionie prowadzona jest wycinkia drzew. Uszanuj pracę leśników i nie przeszkadzaj im w pracy :)",
   },
   {
     id: "3",
-    placeName: "Prace w lesie",
+    placeName: "Stado dzików",
     color: colors.work,
     polygon: [
       {
@@ -96,7 +95,7 @@ var DATA = [
       },
     ],
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "W tym regionie występuje spore stado dzików, które może zaatakować człowieka. Unikaj przechodzenia przez ten obszar.",
   },
 ];
 

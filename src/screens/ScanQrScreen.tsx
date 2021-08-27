@@ -19,27 +19,14 @@ import { useState, useEffect } from "react";
 var DATA = [
   {
     id: "1",
-    placeName: "Miejsce 1",
+    placeName: "Pomnik przyrody",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Buk pospolity odm. czerwonolistnej w parku Steffensa jesienią.",
   },
   {
     id: "2",
-    placeName: "Miejsce 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  },
-  {
-    id: "3",
-    placeName: "Miejsce 3",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  },
-  {
-    id: "4",
-    placeName: "Miejsce 4",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    placeName: "Pomnik przyrody",
+    description: "Dąb czerwony w parku Steffensa",
   },
 ];
 

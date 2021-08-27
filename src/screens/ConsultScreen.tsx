@@ -20,12 +20,26 @@ const DATA = [
   {
     id: "1",
     title: "Wycinka drzew",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    content:
+      "Nadleśnictwo Gdańsk będzie prowadzić wycinkę drzew w okresie: 1.09 - 10.11.",
   },
   {
     id: "2",
     title: "Odstrzał dzików",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    content:
+      "Nadleśnictwo Gdańsk będzie prowadzić odstrzał dzików w okresie: 1.09 - 10.11.",
+  },
+  {
+    id: "3",
+    title: "Wycinka drzew",
+    content:
+      "Nadleśnictwo Gdańsk będzie prowadzić wycinkę drzew w okresie: 1.09 - 10.11.",
+  },
+  {
+    id: "4",
+    title: "Odstrzał dzików",
+    content:
+      "Nadleśnictwo Gdańsk będzie prowadzić odstrzał dzików w okresie: 1.09 - 10.11.",
   },
 ];
 const backgroundURL = require("../../img/tittletattle.jpg");
