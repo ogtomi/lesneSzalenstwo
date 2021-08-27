@@ -31,15 +31,14 @@ const DATA = [
   },
   {
     id: "3",
-    title: "Wycinka drzew",
+    title: "Nowe udogodnienia",
     content:
-      "Nadleśnictwo Gdańsk będzie prowadzić wycinkę drzew w okresie: 1.09 - 10.11.",
+      "Nadleśnictwo Gdańsk planuje wprowadzić nowe udogodnienia dla turystów",
   },
   {
     id: "4",
-    title: "Odstrzał dzików",
-    content:
-      "Nadleśnictwo Gdańsk będzie prowadzić odstrzał dzików w okresie: 1.09 - 10.11.",
+    title: "Parking",
+    content: "Nadleśnictwo Gdańsk planuje wybudować nowy praking.",
   },
 ];
 const backgroundURL = require("../../img/tittletattle.jpg");
@@ -47,46 +46,37 @@ export default function ConsultScreen({ history }) {
   const [alert, setAlert] = useState(false);
   return (
     <ImageBackground source={backgroundURL} style={styles.imgBackground}>
-      <View
-        style={{
-          //backgroundColor: "rgba(255,255,255,0.8)",
-          paddingVertical: 10,
-          borderRadius: 10,
-          margin: 5,
-        }}
+      <Text style={styles.title}>Aktualne konsultacje</Text>
+      <FlatList
+        style={styles.container}
+        data={DATA}
+        renderItem={({ item }) => (
+          <View>
+            <TouchableOpacity onPress={() => setAlert(true)}>
+              <Consult title={item.title} content={item.content}></Consult>
+              <DialogInput
+                isDialogVisible={alert}
+                title={"Zgłoś uwagi"}
+                hintInput={"Wprowadź..."}
+                submitInput={(inputText) => {
+                  console.log("Zgłoszono " + inputText);
+                  setAlert(false);
+                }}
+                closeDialog={() => {
+                  setAlert(false);
+                }}
+              ></DialogInput>
+            </TouchableOpacity>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+      ></FlatList>
+      <TouchableOpacity
+        style={styles.buttonView}
+        onPress={() => history.push("/")}
       >
-        <Text style={styles.title}>Akrualne konsultacje</Text>
-        <FlatList
-          style={styles.container}
-          data={DATA}
-          renderItem={({ item }) => (
-            <View>
-              <TouchableOpacity onPress={() => setAlert(true)}>
-                <Consult title={item.title} content={item.content}></Consult>
-                <DialogInput
-                  isDialogVisible={alert}
-                  title={"Zgłoś uwagi"}
-                  hintInput={"Wprowadź..."}
-                  submitInput={(inputText) => {
-                    console.log("Zgłoszono " + inputText);
-                    setAlert(false);
-                  }}
-                  closeDialog={() => {
-                    setAlert(false);
-                  }}
-                ></DialogInput>
-              </TouchableOpacity>
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-        ></FlatList>
-        <TouchableOpacity
-          style={styles.buttonView}
-          onPress={() => history.push("/")}
-        >
-          <Text style={styles.buttonViewText}>{"<<<"}</Text>
-        </TouchableOpacity>
-      </View>
+        <Text style={styles.buttonViewText}>{"<<<"}</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
