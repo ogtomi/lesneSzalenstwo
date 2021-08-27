@@ -15,33 +15,27 @@ import TittleTattle from "../components/InfoScreen/TittleTattle";
 const DATA = [
   {
     id: "1",
-    title: "Ciekawostka 1",
+    title: "Bocianie spotkanie",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Spacerując leśną ścieżką, można powoli zaobserwować zbliżającą się jesień. Jednakże nie każdy wie, że sierpień to również miesiąc, gdy dochodzi to niezwykłych spotkań na szczycie. Zebrań, których tematem przewodnim jest „omówienie” wyprawy na kontynent odległy od Polski o tysiące kilometrów.",
   },
   {
     id: "2",
-    title: "Ciekawostka 1",
+    title: "Pustułki w powietrzu",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Wcześniej pustułki przebywały w prowadzonym przez Nadleśnictwo Olsztyn Ośrodku Rehabilitacji Ptaków Drapieżnych.",
   },
   {
     id: "3",
-    title: "Ciekawostka 1",
+    title: "Światowy Dzień Komara",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "W przeprowadzanych przez Lasy Państwowe badaniach opinii publicznej niechęć do kłujących nas owadów deklaruje aż co trzeci badany.",
   },
   {
     id: "4",
-    title: "Ciekawostka 1",
+    title: "Rzeźbią „Ducha lasu”",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  },
-  {
-    id: "5",
-    title: "Ciekawostka 1",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "W poniedziałek, mimo deszczowej pogody, rozpoczął się plener artystyczny pod hasłem „Duch lasu”, współorganizowany przez Nadleśnictwo Dukla i Gminny Ośrodek Kultury w Iwoniczu Zdroju.",
   },
 ];
 
@@ -53,7 +47,7 @@ export default function InfoScreen({ history }) {
       {/* <View style={styles.container}>
         <Text style={styles.title}>Czy wiesz, że?</Text> */}
       <FlatList
-        ListHeaderComponent={<Text style={styles.title}>Czy wiesz, że?</Text>}
+        ListHeaderComponent={<Text style={styles.title}>Aktualności</Text>}
         style={styles.container}
         data={DATA}
         renderItem={({ item }) => (

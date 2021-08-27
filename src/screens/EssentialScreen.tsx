@@ -20,7 +20,7 @@ const EssentialScreen = ({ history }) => {
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View>
         <MyModal name="Zasady zachowania w lesie" text={rules} />
-        <MyModal name="Co należy wziąć ze sobą" text="Jakis tekst" />
+        <MyModal name="Co należy wziąć ze sobą" text={essentials} />
         <MyModal name="Niezbędne numery" text={numbers} />
         <TouchableOpacity
           style={styles.buttonView}
@@ -65,4 +65,6 @@ const styles = StyleSheet.create({
 const rules =
   "W lasach zabrania się:\n\n1) Zanieczyszczania gleby i wód\n\n2) Zaśmiecania\n\n3) Rozkopywania gruntu\n\n4) Niszczenia grzybów oraz grzybni\n\n5) Niszczenia lub uszkadzania drzew, krzewów lub innych roślin";
 const numbers =
-  "Numery:\n\nNUMER ALARMOWY: 112\n\nPOLICJA: 997\n\nSTRAŻ POŻARNA: 998\n\nPOGOTOWIE RATUNKOWE: 999";
+  "Numery:\n\nSTRAŻ LEŚNA: 668-612-272\n\nNUMER ALARMOWY: 112\n\nPOLICJA: 997\n\nSTRAŻ POŻARNA: 998\n\nPOGOTOWIE RATUNKOWE: 999";
+const essentials = 
+  "Niezbędne rzeczy:\n\n1) Dokument\n\n2) Latarka\n\n3) Woda\n\n4) Podręczna apteczka\n\n5) Telefon\n\n6) Dodatkowe ubrania"
