@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(0, 80, 35)",
     //width: 380,
     height: Dimensions.get("window").height / 8,
-    marginBottom: 7,
+    marginBottom: 65,
     marginTop: 7,
     marginHorizontal: 5,
     justifyContent: "center",
