@@ -73,7 +73,7 @@ export default function ConsultScreen({ history }) {
       ></FlatList>
       <TouchableOpacity
         style={styles.buttonView}
-        onPress={() => history.push("/")}
+        onPress={() => history.goBack()}
       >
         <Text style={styles.buttonViewText}>{"<<<"}</Text>
       </TouchableOpacity>
