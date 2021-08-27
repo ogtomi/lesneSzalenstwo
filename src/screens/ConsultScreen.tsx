@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
   },
   imgBackground: {
-    //width: "100%",
+    width: "100%",
     marginTop: 40,
     height: "100%",
     flex: 1,

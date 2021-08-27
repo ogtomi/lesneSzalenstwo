@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
     //width: 350,
-    height: 100,
+    height: 80,
     marginRight: 7,
     marginLeft: 7,
     marginBottom: 7,
@@ -145,14 +145,16 @@ const styles = StyleSheet.create({
   buttonView: {
     marginTop: 50,
     marginBottom: 10,
-    //width: Dimensions.get("window").width,
-    marginLeft: 5,
-    marginRight: 5,
+    width: "100%",
+    //marginLeft: 5,
+    //marginRight: 5,
     height: 60,
     backgroundColor: "rgb(0, 80, 35)",
     alignContent: "center",
     justifyContent: "center",
     borderRadius: 10,
+    position: "absolute",
+    bottom: 0,
   },
   buttonViewText: {
     fontSize: 45,
