@@ -62,7 +62,7 @@ const AlertScreen = ({ history }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonView}
-          onPress={() => history.push("/")}
+          onPress={() => history.goBack()}
         >
           <Text style={styles.buttonViewText}>{"<<<"}</Text>
         </TouchableOpacity>
@@ -72,6 +72,7 @@ const AlertScreen = ({ history }) => {
           hintInput={"Wprowadź..."}
           submitInput={(inputText) => {
             console.log("Zgłoszono " + inputText);
+            setAlert(false);
           }}
           closeDialog={() => {
             setAlert(false);

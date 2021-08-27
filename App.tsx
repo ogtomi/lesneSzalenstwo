@@ -16,7 +16,7 @@ import RestScreen from "./src/screens/RestScreen";
 import NotificationScreen from "./src/screens/NotificationScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
-
+import ConsultScreen from "./src/screens/ConsultScreen";
 const store = createStore(reducers);
 
 export default function App() {
@@ -36,6 +36,7 @@ export default function App() {
             <Route path="/RestScreen" component={RestScreen} />
             <Route path="/LoginScreen" component={LoginScreen} />
             <Route path="/SignUpScreen" component={SignUpScreen} />
+            <Route path="/ConsultScreen" component={ConsultScreen} />
           </Switch>
         </View>
       </NativeRouter>

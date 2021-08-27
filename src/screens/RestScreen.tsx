@@ -47,6 +47,12 @@ class RestScreen extends React.Component {
             <Text style={styles.text}>Niezbędnik</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => this.props.history.push("ConsultScreen")}
+            style={styles.tiles}
+          >
+            <Text style={styles.text}>Konsultacje</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.buttonView}
             onPress={() => this.props.history.push("/")}
           >
@@ -93,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center",
-    borderRadius: 10
+    borderRadius: 10,
   },
   rows: {
     flexDirection: "row",
