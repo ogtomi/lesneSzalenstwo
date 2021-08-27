@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#FFFF",
-    fontSize: 20,
+    fontSize: 25,
   },
   tiles: {
     backgroundColor: "rgb(0, 80, 35)",
