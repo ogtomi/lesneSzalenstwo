@@ -45,7 +45,7 @@ class MainScreen extends React.Component {
             }}
           >
             <Text style={styles.text}>
-              {!this.props.loginData.isSignedIn ? "LOGIN" : "LOGOUT"}
+              {!this.props.loginData.isSignedIn ? "ZALOGUJ" : "WYLOGUJ"}
             </Text>
           </TouchableOpacity>
         </View>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#FFFF",
-    fontSize: 20,
+    fontSize: 25,
   },
   alert: {
     backgroundColor: "#FE3C72",

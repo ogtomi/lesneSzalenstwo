@@ -25,7 +25,7 @@ class LoginScreen extends React.Component {
     return (
       <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
         <View style={styles.container}>
-          <Text style={styles.logo}>LOGIN</Text>
+          <Text style={styles.logo}>ZALOGUJ</Text>
           <View style={styles.inputView}>
             <TextInput
               style={styles.inputText}
@@ -38,7 +38,7 @@ class LoginScreen extends React.Component {
             <TextInput
               secureTextEntry
               style={styles.inputText}
-              placeholder="Password..."
+              placeholder="Haslo..."
               placeholderTextColor="#003f5c"
               onChangeText={(text) => this.setState({ inputPassword: text })}
             />
@@ -53,12 +53,12 @@ class LoginScreen extends React.Component {
             }}
             style={styles.loginBtn}
           >
-            <Text style={styles.loginText}>LOGIN</Text>
+            <Text style={styles.loginText}>ZALOGUJ</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.props.history.push("SignUpScreen")}
           >
-            <Text style={styles.loginText}>Signup</Text>
+            <Text style={styles.loginText}>Zarejestruj</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>

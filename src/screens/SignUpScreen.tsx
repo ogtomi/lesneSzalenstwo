@@ -10,11 +10,11 @@ const SignUpScreen = ({ history }) => {
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.bgImage}>
       <View style={styles.container}>
-        <Text style={styles.logo}>Sign up</Text>
+        <Text style={styles.logo}>REJESTRACJA</Text>
         <View style={styles.inputView}>
           <TextInput
             style={styles.inputText}
-            placeholder="Name..."
+            placeholder="Imie..."
             placeholderTextColor="#003f5c"
             //onChangeText={(text) => this.setState({ name: text })}
           />
@@ -22,7 +22,7 @@ const SignUpScreen = ({ history }) => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.inputText}
-            placeholder="Surname..."
+            placeholder="Nazwisko..."
             placeholderTextColor="#003f5c"
             //onChangeText={(text) => this.setState({ surname: text })}
           />
@@ -38,7 +38,7 @@ const SignUpScreen = ({ history }) => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.inputText}
-            placeholder="Password..."
+            placeholder="Haslo..."
             placeholderTextColor="#003f5c"
             //onChangeText={(text) => this.setState({ password: text })}
           />
@@ -47,7 +47,7 @@ const SignUpScreen = ({ history }) => {
           onPress={() => history.push("/")}
           style={styles.loginBtn}
         >
-          <Text style={styles.loginText}>SIGN UP</Text>
+          <Text style={styles.loginText}>Zarejestruj</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
